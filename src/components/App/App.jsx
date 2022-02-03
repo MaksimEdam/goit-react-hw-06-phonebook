@@ -1,7 +1,7 @@
 import FormContact from '../FormContact';
 import ContactList from '../ContactList';
 import Filter from '../Filter';
-import { getFilter } from '../../redux/contacts-selectors';
+
 import s from './App.module.css';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <h1 className={s.title}>Phonebook</h1>
       <FormContact />
       <h2 className={s.title}>Contacts</h2>
-      <Filter value={getFilter} />
+      <Filter />
       <ContactList />
     </div>
   );

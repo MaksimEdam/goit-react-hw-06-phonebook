@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import contactsActions from '../../redux/contacts-actions';
 import { getContacts } from '../../redux/contacts-selectors';
 import s from './FormContact.module.css';
@@ -12,19 +11,8 @@ function FormContact() {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+  const handleChange = ({ target: { name, value } }) => {
+    name === 'name' ? setName(value) : setNumber(value);
   };
 
   const handleSubmit = e => {

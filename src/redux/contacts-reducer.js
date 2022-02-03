@@ -13,12 +13,13 @@ const contacts = createReducer(initialState, {
   [contactsActions.addContacts]: (state, { payload }) => {
     return [...state, payload];
   },
-  [contactsActions.deleteContacts]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+  [contactsActions.deleteContacts]: (state, { payload }) => {
+    return state.filter(({ id }) => id !== payload);
+  },
 });
 
 const filter = createReducer('', {
-  [contactsActions.changeFilter]: (_, { payload }) => payload,
+  [contactsActions.changeFilter]: (_state, { payload }) => payload,
 });
 
 export default combineReducers({ contacts, filter });

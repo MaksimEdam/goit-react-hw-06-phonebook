@@ -6,6 +6,7 @@ import s from './Filter.module.css';
 function Filter() {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
+
   const onChange = e => {
     dispatch(contactsActions.changeFilter(e.target.value));
   };
